@@ -40,19 +40,19 @@
     "question": "Que fabriquait Yamaha à l'origine ?",
     "reponses": ["Des pianos", "Des flûtes", "Des guitares", "Des orgues"],
     "bonne_reponse": 3
-  }
+  },
   {
     "id": 8,
     "question": "Parmi ces 4 modèles de motos, 1 seul est équipé d'un moteur 3 cylindres. Lequel ?",
     "reponses": ["Honda CBR 1000 RR-R Fireblade", "KTM 1290 SuperDuke R", "Triumph Bonneville T100", "Yamaha MT-09"],
     "bonne_reponse": 3
-  }
+  },
   {
     "id": 9,
     "question": "La firme Suzuki était initialement connue pour une autre industrie, laquelle ?",
     "reponses": ["La fonderie", "La fabrication de machines à coudre", "La motorisation de bateaux", "L'automobile"],
     "bonne_reponse": 1
-  }
+  },
   {
     "id": 10,
     "question": "Les marques BSA, Husqvarna Motorcycles, et Royal Enfield ont un point commun. Lequel ?",
