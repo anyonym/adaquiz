@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Motoquiz</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="questions.js" defer></script>
     <script src="script.js" defer></script>
   </head>
 
@@ -27,7 +28,7 @@
 
         
           <button id="bouton-demarrer" class="bouton bouton-demarrer" disabled>
-            Warm-up en cour ...🚦
+            Warm-up en cours ...🚦
           </button>
         
       </section>
@@ -36,7 +37,7 @@
        ÉCRAN 2 — QUESTION
        Caché au départ. Affiché pendant le quiz.
   ════════════════════════════════════════ -->
-      <section id="ecran-question" class="ecran cache" hidden>
+      <section id="ecran-question" class="ecran cache">
 
       <!---Compteur de questions--->
         <div class="statut-quiz">
@@ -49,17 +50,17 @@
         </div>
 
       <!---Zone pour le texte de la question (ID pour que JS affiche la question)-->
-        <h2 id="text">Chargememt de la question...🏍️</h2>
+        <h2 id="text">Chargement de la question...🏍️</h2>
 
-      <!---Zone boutons de réponse ( Zone ou JS va Injecter les 4 réponses)-->
+      <!---Zone boutons de réponses ( Zone ou JS va Injecter les 4 réponses)-->
         <div id="zone-boutons-reponses" class="grille-boutons">
-          <!--JS créra le bouton automatiquement ici -->
+          <!--JS créera le bouton automatiquement ici -->
         </div>
 
-      <!-----Zonede feedback ( mauvaise/ bonne reponse + annecdote )----->
+      <!-----Zone de feedback (onne / mauvaise reponse + anecdote )----->
         <div id="boite-retour" class="conteneur-retour cache">
           <p id="message-retour">Message de validation</p>
-          <p id="annecdote-retour" class="texte-annecdote">l'annecdote s'affichera ici...📜</p>  
+          <p id="anecdote-retour" class="texte-anecdote">l'anecdote s'affichera ici...📜</p>  
         </div>
 
 
@@ -73,7 +74,7 @@
        ÉCRAN 3 — RÉSULTATS
        Caché au départ. Affiché à la fin du quiz.
   ════════════════════════════════════════ -->
-      <section id="ecran-resultats" class="ecran cache" hidden>
+      <section id="ecran-resultats" class="ecran cache">
         <div class="image-resultats">
           <img src="" alt="" />
         </div>

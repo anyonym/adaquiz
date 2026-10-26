@@ -26,12 +26,12 @@ let score = 0    // nombre de bonnes réponses
 // Cette fonction est déjà écrite.
 // Elle charge le fichier questions.json et remplit l'écran d'accueil.
 
-fetch('questions.json')
+fetch('questions.js')
   .then(response => response.json())
   .then(data => {
     questions = data
-    titreQuiz.textContent = 'AdaQuiz'
-    descriptionQuiz.textContent = 'Ton quiz personnalisé'
+    titreQuiz.textContent = 'Motoquiz'
+    descriptionQuiz.textContent = 'Que tu sois pilote passionné.e de routes à virages, ou simplement amateur.ice de belles machines et de puissance, aligne toi sur la ligne de départ, accélère fort, prends la plus belle trajectoire et valide les 10 prochains checkpoints pour atteindre le meilleur score !'
     nbQuestions.textContent = questions.length + ' questions'
   })
 
@@ -66,9 +66,7 @@ const afficher = (ecran) => {
 //   6. Vider #liste-reponses, puis créer un bouton pour chaque réponse
 //      Chaque bouton doit appeler verifierReponse() au clic
 
-const afficherQuestion = () => {
-  // Écris ton code ici
-}
+// écris ton code ici
 
 
 // ── TODO : verifierReponse ───────────────────
