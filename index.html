@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <main>
+    <main class="conteneur-quiz">
       <header>
         <h1>Motoquiz</h1>
       </header>
@@ -25,9 +25,11 @@
         <h2>Bienvenue sur la piste !</h2>
         <p>Que tu sois pilote passionné.e de routes à virages, ou simplement amateur.ice de belles machines et de puissance, aligne toi sur la ligne de départ, accélère fort, prends la plus belle trajectoire et valide les 10 prochains checkpoints pour atteindre le meilleur score !</p>
 
-        <div class="bouton-accueil">
-          <button type="button" disabled>Départ</button>
-        </div>
+        
+          <button id="bouton-demarrer" class="bouton bouton-demarrer" disabled>
+            Warm-up en cour ...🚦
+          </button>
+        
       </section>
 
       <!-- ═══════════════════════════════════════
@@ -36,13 +38,35 @@
   ════════════════════════════════════════ -->
       <section id="ecran-question" class="ecran cache" hidden>
 
-        <div class="image-question">
-          <img src="" alt="" />
+      <!---Compteur de questions--->
+        <div class="statut-quiz">
+          <span id="compteur-question">Question 1 /10</span>
         </div>
 
-        <div class="bouton-question">
-          <button type="submit" disabled>Question suivante</button>
+      <!------Bloc image----->  
+        <div class="image-question">
+          <img id="image-question" src="" alt="" />
         </div>
+
+      <!---Zone pour le texte de la question (ID pour que JS affiche la question)-->
+        <h2 id="text">Chargememt de la question...🏍️</h2>
+
+      <!---Zone boutons de réponse ( Zone ou JS va Injecter les 4 réponses)-->
+        <div id="zone-boutons-reponses" class="grille-boutons">
+          <!--JS créra le bouton automatiquement ici -->
+        </div>
+
+      <!-----Zonede feedback ( mauvaise/ bonne reponse + annecdote )----->
+        <div id="boite-retour" class="conteneur-retour cache">
+          <p id="message-retour">Message de validation</p>
+          <p id="annecdote-retour" class="texte-annecdote">l'annecdote s'affichera ici...📜</p>  
+        </div>
+
+
+        <div class="bouton-question">
+          <button type="buttton" id="bouton-suivant" class="bouton-suivant cache" disabled>Question suivante</button>
+        </div>
+
       </section>
 
       <!-- ═══════════════════════════════════════
@@ -54,11 +78,13 @@
           <img src="" alt="" />
         </div>
 
-        <h2>Résultats</h2>
-        <p>Score final</p>
+        <h2>Résultats 🏁</h2>
+
+      <!----Ajout de <span> pour que JS écrive le score à cet endroit précis-->
+        <p>Score final : <span id="score-final">0</span> / 10</p>
 
         <div class="bouton-rejouer">
-          <button type="button">Rejouer</button>
+          <button type="button" id="bouton-rejouer">Rejouer</button>
         </div>
       </section>
 
