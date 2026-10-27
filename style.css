@@ -74,6 +74,81 @@ button:disabled {
     cursor: not-allowed;
 }
 
+/* Barre de progression */
+#barre-progression {
+  display: block;
+  width: 100%;
+  height: 12px;
+  margin: 0.75rem 0 1rem;
+  accent-color: #198754;
+}
+
+/* Illustration de chaque question */
+#image-question {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  max-height: 350px;
+  object-fit: contain;
+  margin: 1rem auto;
+}
+
+/* Boutons de réponse */
+.btn-reponse {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  color: #222;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Bonne réponse : vert */
+.btn-reponse.correcte {
+  background-color: #d1e7dd;
+  border-color: #198754;
+  color: #0f5132;
+}
+
+/* Mauvaise réponse sélectionnée : rouge */
+.btn-reponse.incorrecte {
+  background-color: #f8d7da;
+  border-color: #dc3545;
+  color: #842029;
+}
+
+/* Feedback après validation */
+.feedback {
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.feedback.correcte {
+  color: #198754;
+}
+
+.feedback.incorrecte {
+  color: #dc3545;
+}
+
+/* Zone anecdote */
+#zone-anecdote {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 4px solid #174ea6;
+  background-color: #f0f4fa;
+}
+
+/* État désactivé */
+.btn-reponse:disabled {
+  cursor: not-allowed;
+  opacity: 1;
+}
+
 /* Accessibilité au clavier */
 button:focus-visible,
 input:focus-visible {

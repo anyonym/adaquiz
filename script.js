@@ -4,54 +4,69 @@
 //   Les fonctions marquées TODO sont à compléter.
 // ════════════════════════════════════════════
 
-
 // ── Sélection des éléments DOM ──────────────
 // Ces lignes récupèrent les éléments HTML par leur id.
 // Tu n'as pas besoin de les modifier.
 
-const btnCommencer = document.getElementById('btn-commencer')
-//... Crée autant de constantes que d'éléments HTML à récupérer
+const btnCommencer = document.getElementById("btn-commencer");
+const ecranAccueil = document.getElementById("ecran-accueil");
+const ecranQuestion = document.getElementById("ecran-question");
+const ecranResultats = document.getElementById("ecran-resultats");
 
+const titreQuiz = document.getElementById("titre-quiz");
+const descriptionQuiz = document.getElementById("description-quiz");
+const nbQuestions = document.getElementById("nb-questions");
+
+const texteQuestion = document.getElementById("texte-question");
+const listeReponses = document.getElementById("liste-reponses");
+const compteurQuestion = document.getElementById("compteur-question");
+const barreProgression = document.getElementById("barre-progression");
+const imageQuestion = document.getElementById("image-question");
+
+const feedbackReponse = document.getElementById("feedback-reponse");
+const btnAnecdote = document.getElementById("btn-anecdote");
+const zoneAnecdote = document.getElementById("zone-anecdote");
+const texteAnecdote = document.getElementById("texte-anecdote");
+
+const scoreFinal = document.getElementById("score-final");
+const messageFin = document.getElementById("message-fin");
 
 // ── État du quiz ─────────────────────────────
 // Ces variables stockent les données en cours de partie.
 // Tu n'as pas besoin de les modifier.
 
-let questions = []   // tableau des questions chargées depuis le JSON
-let indexCourant = 0    // numéro de la question en cours (commence à 0)
-let score = 0    // nombre de bonnes réponses
+let questions = []; // tableau des questions chargées depuis le JSON
+let indexCourant = 0; // numéro de la question en cours (commence à 0)
+let score = 0; // nombre de bonnes réponses
 
+// // ── Chargement du JSON ───────────────────────
+// // Cette fonction est déjà écrite.
+// // Elle charge le fichier questions.json et remplit l'écran d'accueil.
 
-// ── Chargement du JSON ───────────────────────
-// Cette fonction est déjà écrite.
-// Elle charge le fichier questions.json et remplit l'écran d'accueil.
-
-fetch('questions.js')
-  .then(response => response.json())
-  .then(data => {
-    questions = data
-    titreQuiz.textContent = 'Motoquiz'
-    descriptionQuiz.textContent = 'Que tu sois pilote passionné.e de routes à virages, ou simplement amateur.ice de belles machines et de puissance, aligne toi sur la ligne de départ, accélère fort, prends la plus belle trajectoire et valide les 10 prochains checkpoints pour atteindre le meilleur score !'
-    nbQuestions.textContent = questions.length + ' questions'
-  })
-
+fetch("questions.json")
+  .then((response) => response.json())
+  .then((data) => {
+    questions = data;
+    titreQuiz.textContent = "Motoquiz";
+    descriptionQuiz.textContent =
+      "Que tu sois pilote passionné.e de routes à virages, ou simplement amateur.ice de belles machines et de puissance, aligne toi sur la ligne de départ, accélère fort, prends la plus belle trajectoire et valide les 10 prochains checkpoints pour atteindre le meilleur score !";
+    nbQuestions.textContent = questions.length + " questions";
+  });
 
 // ── Navigation entre les écrans ──────────────
 // Cette fonction est déjà écrite.
 // Elle cache tous les écrans puis affiche celui qu'on lui donne.
 
 const afficher = (ecran) => {
-  ecranAccueil.classList.add('cache')
-  ecranQuestion.classList.add('cache')
-  ecranResultats.classList.add('cache')
-  ecran.classList.remove('cache')
-}
-
+  ecranAccueil.classList.add("cache");
+  ecranQuestion.classList.add("cache");
+  ecranResultats.classList.add("cache");
+  ecran.classList.remove("cache");
+};
 
 // ════════════════════════════════════════════
 //   TODO — Fonctions à compléter
 // ════════════════════════════════════════════
-
 
 // ── TODO : afficherQuestion ──────────────────
 // Cette fonction doit afficher la question en cours.
@@ -67,7 +82,24 @@ const afficher = (ecran) => {
 //      Chaque bouton doit appeler verifierReponse() au clic
 
 // écris ton code ici
+const afficherQuestion = () => {
+  const q = questions[indexCourant];
 
+  texteQuestion.textContent = q.texte; // modifier
+
+  listeReponses.innerHTML = ""; // vider
+
+  q.reponses.forEach((reponse, index) => {
+    const btn = document.createElement("button"); // créer
+    btn.textContent = reponse;
+    btn.classList.add("btn-reponse"); // modifier
+    btn.addEventListener("click", () => {
+      // écouter
+      verifierReponse(index);
+    });
+    listeReponses.appendChild(btn); // insérer
+  });
+};
 
 // ── TODO : verifierReponse ───────────────────
 // Cette fonction est appelée quand une apprenante clique sur une réponse.
@@ -83,8 +115,7 @@ const afficher = (ecran) => {
 
 const verifierReponse = (indexChoisi) => {
   // Écris ton code ici
-}
-
+};
 
 // ── TODO : afficherResultats ─────────────────
 // Cette fonction est appelée quand toutes les questions ont été répondues.
@@ -96,8 +127,7 @@ const verifierReponse = (indexChoisi) => {
 
 const afficherResultats = () => {
   // Écris ton code ici
-}
-
+};
 
 // ── TODO : écouteurs d'événements ───────────
 // Branche les boutons sur les bonnes fonctions.
