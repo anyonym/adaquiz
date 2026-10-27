@@ -89,6 +89,8 @@ const afficherQuestion = () => {
 
   listeReponses.innerHTML = ""; // vider
 
+  texteAnecdote.textContent = q.anecdote;
+
   q.reponses.forEach((reponse, index) => {
     const btn = document.createElement("button"); // créer
     btn.textContent = reponse;
@@ -97,6 +99,7 @@ const afficherQuestion = () => {
       // écouter
       verifierReponse(index);
     });
+    btnAnecdote.disabled = false;
     listeReponses.appendChild(btn); // insérer
   });
 };

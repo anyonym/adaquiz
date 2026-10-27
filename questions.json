@@ -1,40 +1,56 @@
-{
+[
+  {
     "id": 1,
     "question": "Quel type de motorisation a été utilisé en premier sur une moto ?",
     "reponses": ["Essence", "Diesel", "Rotatif", "Vapeur"],
-    "bonne_reponse": 3
+    "bonne_reponse": 3,
     "anecdote": "Bien avant les moteurs à essence, des inventeurs ont adapté des machines à vapeur aux vélocipèdes. Le vélocipède Michaux-Perreaux, construit en France vers 1868, est l’un des candidats au titre de première moto.",
-    "image": "images/question1.WEBP",
+    "image": "images/question1.WEBP"
   },
   {
     "id": 2,
     "question": "En septembre 1896 a eu lieu la première compétition moto. Quel en était le tracé ?",
-    "reponses": ["Turin - Asti - Turin", "Le tour de l'île de Man", "Lyon - Genève", "Paris - Nantes - Paris"],
-    "bonne_reponse": 3
+    "reponses": [
+      "Turin - Asti - Turin",
+      "Le tour de l'île de Man",
+      "Lyon - Genève",
+      "Paris - Nantes - Paris"
+    ],
+    "bonne_reponse": 3,
     "anecdote": "Le 20 septembre 1896, cette épreuve pionnière aurait réuni huit concurrents. Le vainqueur, M. Chevalier, pilotait un tricycle motorisé et atteignait une moyenne annoncée de 36 km/h.",
-    "image": "images/question2.jpg",
+    "image": "images/question2.jpg"
   },
   {
     "id": 3,
     "question": "Quel modèle de moto pilote Tom Cruise dans Top Gun ?",
-    "reponses": ["Kawasaki GPZ900R Ninja", "Yamaha XJ 900", "Suzuki GSX-R 750", "Triumph 1200 Speed Twin"],
-    "bonne_reponse": 0
+    "reponses": [
+      "Kawasaki GPZ900R Ninja",
+      "Yamaha XJ 900",
+      "Suzuki GSX-R 750",
+      "Triumph 1200 Speed Twin"
+    ],
+    "bonne_reponse": 0,
     "anecdote": "La Kawasaki GPZ900R Ninja est devenue particulièrement célèbre grâce au film Top Gun de 1986, dans lequel Tom Cruise la pilote. Cette apparition a contribué à faire de la Ninja une moto emblématique de la culture populaire.",
-    "image": "images/question3.jpg",
+    "image": "images/question3.jpg"
   },
   {
     "id": 4,
     "question": "Quel pays a connu la naissance de la moto ?",
     "reponses": ["L'Italie", "L'Allemagne", "Les États-Unis", "La France"],
-    "bonne_reponse": 3
+    "bonne_reponse": 3,
     "anecdote": "La France compte parmi les pionniers de la moto avec le vélocipède à vapeur Michaux-Perreaux.",
-    "image": "images/question4.PNG",
+    "image": "images/question4.PNG"
   },
   {
     "id": 5,
     "question": "Que représente le logo BMW ?",
-    "reponses": ["Une roue", "Un phare rond", "Une hélice en rotation", "Un volant"],
-    "bonne_reponse": 2
+    "reponses": [
+      "Une roue",
+      "Un phare rond",
+      "Une hélice en rotation",
+      "Un volant"
+    ],
+    "bonne_reponse": 2,
     "anecdote": "Petite surprise : BMW explique que son logo reprend les couleurs de la Bavière. Son interprétation comme une hélice d’avion en rotation s’est popularisée dans des publicités à la fin des années 1920.",
     "image": "images/question5.JPG"
   },
@@ -42,39 +58,55 @@
     "id": 6,
     "question": "Quelle ville a vu naître la marque Ducati ?",
     "reponses": ["Turin", "Bologne", "Milan", "Rome"],
-    "bonne_reponse": 1
+    "bonne_reponse": 1,
     "anecdote": "Surprise : Ducati n’a pas commencé par fabriquer des motos ! Fondée à Bologne en 1926, l’entreprise familiale travaillait initialement dans les technologies de radio et les composants électroniques.",
-    "image": "images/question6.WEBP",
+    "image": "images/question6.WEBP"
   },
   {
     "id": 7,
     "question": "Que fabriquait Yamaha à l'origine ?",
     "reponses": ["Des pianos", "Des flûtes", "Des guitares", "Des orgues"],
-    "bonne_reponse": 3
+    "bonne_reponse": 3,
     "anecdote": "En 1887, Torakusu Yamaha répare un orgue à anches dans une école japonaise. Il en fabrique ensuite un lui-même : c’est le point de départ de l’histoire de Yamaha dans les instruments de musique, bien avant ses motos.",
-    "image": "images/question7.png",
+    "image": "images/question7.png"
   },
   {
     "id": 8,
     "question": "Parmi ces 4 modèles de motos, 1 seul est équipé d'un moteur 3 cylindres. Lequel ?",
-    "reponses": ["Honda CBR 1000 RR-R Fireblade", "KTM 1290 SuperDuke R", "Triumph Bonneville T100", "Yamaha MT-09"],
-    "bonne_reponse": 3
+    "reponses": [
+      "Honda CBR 1000 RR-R Fireblade",
+      "KTM 1290 SuperDuke R",
+      "Triumph Bonneville T100",
+      "Yamaha MT-09"
+    ],
+    "bonne_reponse": 3,
     "anecdote": "La Yamaha MT-09 a été lancée en 2013 avec un moteur trois cylindres de 847 cm³. Yamaha l’a conçu selon son concept « Crossplane », qui vise à rendre la réponse du moteur à l’accélération plus linéaire. Ce moteur est devenu un élément emblématique de la MT-09.",
-    "image": "images/question8.png",
+    "image": "images/question8.png"
   },
   {
     "id": 9,
     "question": "La firme Suzuki était initialement connue pour une autre industrie, laquelle ?",
-    "reponses": ["La fonderie", "La fabrication de métiers à tisser", "La motorisation de bateaux", "L'automobile"],
-    "bonne_reponse": 1
+    "reponses": [
+      "La fonderie",
+      "La fabrication de métiers à tisser",
+      "La motorisation de bateaux",
+      "L'automobile"
+    ],
+    "bonne_reponse": 1,
     "anecdote": "Michio Suzuki fonde Suzuki Loom Works, une entreprise de métiers à tisser. La marque ne commence à développer son activité dans les véhicules motorisés qu’en 1952.",
-    "image": "images/question9.JPG",
+    "image": "images/question9.JPG"
   },
   {
     "id": 10,
     "question": "Les marques BSA, Husqvarna Motorcycles, et Royal Enfield ont un point commun. Lequel ?",
-    "reponses": ["Elles ont été fondées la même année", "Elles partagent la même nationalité", "Elles sont l'héritage de manufactures d'armes", "Elles produisent uniquement des modèles en série limitée"],
-    "bonne_reponse": 2
+    "reponses": [
+      "Elles ont été fondées la même année",
+      "Elles partagent la même nationalité",
+      "Elles sont l'héritage de manufactures d'armes",
+      "Elles produisent uniquement des modèles en série limitée"
+    ],
+    "bonne_reponse": 2,
     "anecdote": "BSA a été fondée pour fabriquer des armes à feu en 1861. Husqvarna était à l’origine une manufacture d’armes suédoise, tandis que Royal Enfield a adopté le nom « Royal » et la devise « Made Like A Gun » en référence à son histoire liée à la Royal Small Arms Factory.",
-    "image": "images/question10.png", 
+    "image": "images/question10.png"
   }
+]
