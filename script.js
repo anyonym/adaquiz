@@ -51,6 +51,8 @@ fetch("questions.json")
     descriptionQuiz.textContent =
       "Que tu sois pilote passionné.e de routes à virages, ou simplement amateur.ice de belles machines et de puissance, aligne toi sur la ligne de départ, accélère fort, prends la plus belle trajectoire et valide les 10 prochains checkpoints pour atteindre le meilleur score !";
     nbQuestions.textContent = questions.length + " questions";
+    //change le texte du boutun de demarrage une fois le chargement finis
+    btnCommencer.textContent = "Démarer le quiz 🏍️"; 
   });
 
 // ── Navigation entre les écrans ──────────────

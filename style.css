@@ -6,24 +6,59 @@
     box-sizing: border-box;
 }
 
+/* Fond immersif pour tout le Quiz*/
 body {
     margin: 0;
-    padding: 1rem;
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    background-color: #ffc400;
-    color: #222;
-    text-align: center;
+    padding: 0;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)), url('images/image_de_fond_alt.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Zone principale */
-main {
-    width: min(100%, 760px);
-    margin: 2rem auto;
+main, .container {
+    background: rgba(255, 255, 255, 0.08);  /* effet verre fumé léger*/
+    backdrop-filter: blur(4px);   /* floute le fond derriere le quiz*/
+    border: 1px solid (255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); 
+    border-radius: 16px;
+    padding: 2.5rem;
+    width: min(95%, 760px);
+    text-align: center;
+}
+/* Gestion des images et illustrations*/
+.image-accueil img,
+.image-resultats img {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    max-height: 250px;
+    object-fit: contain;
+    margin: 1rem auto;
+    border-radius: 8px;
+}  
+/* Ecran d'accueil*/
+#descrition-quiz {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+#nb-questions {
+  font-size: bold;
+  color: #198754;
 }
 
 /* Écrans du quiz */
-.ecran {
+.ecran-question {
     padding: 2rem;
     background-color: #ffc400;
     border: 1px solid #ddd;
@@ -142,6 +177,19 @@ button:disabled {
   border-left: 4px solid #174ea6;
   background-color: #f0f4fa;
 }
+/* Ecran de resultats*/
+#score-final {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #174ea6;
+  display: inline-block;
+  margin-bottom: 0.5rem 0;
+}
+#message-fin {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
 
 /* État désactivé */
 .btn-reponse:disabled {
@@ -154,4 +202,7 @@ button:focus-visible,
 input:focus-visible {
     outline: 3px solid #f0a000;
     outline-offset: 3px;
+}
+.footer {
+  text-align: center;
 }
