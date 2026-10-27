@@ -1,4 +1,4 @@
-[
+const questions = [
   {
     "id": 1,
     "question": "Quel type de motorisation a été utilisé en premier sur une moto ?",
@@ -50,7 +50,7 @@
   {
     "id": 9,
     "question": "La firme Suzuki était initialement connue pour une autre industrie, laquelle ?",
-    "reponses": ["La fonderie", "La fabrication de machines à coudre", "La motorisation de bateaux", "L'automobile"],
+    "reponses": ["La fonderie", "La fabrication de métiers à tisser", "La motorisation de bateaux", "L'automobile"],
     "bonne_reponse": 1
   },
   {
