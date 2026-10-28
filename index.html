@@ -24,16 +24,16 @@
         <div class="image-accueil">
           <img src="" alt="" />
         </div>
-        <h2>Bienvenue sur la piste !</h2>
-        <p id="description-quiz">
+        <h2 id="titreQuiz">Bienvenue sur la piste !</h2>
+        <p id="descriptionQuiz">
           Que tu sois pilote passionné.e de routes à virages, ou simplement
           amateur.ice de belles machines et de puissance, aligne toi sur la
           ligne de départ, accélère fort, prends la plus belle trajectoire et
           valide les 10 prochains checkpoints pour atteindre le meilleur score !
         </p>
-        <p><span id="nb-questions">0</span></p>
+        <p><span id="nbQuestions">10</span></p>
 
-        <button id="btn-commencer" type="button">Warm-up en cours ...🚦</button>
+        <button id="btn-commencer" type="button" disabled>Warm-up en cours ...🚦</button>
       </section>
 
       <!-- ═══════════════════════════════════════
@@ -52,7 +52,7 @@
 
         <p id="feedback-reponse" aria-live="polite"></p>
 
-        <button id="btn-anecdote" type="button" hidden>Anecdote</button>
+        <button id="btn-anecdote" type="button" hidden disabled>Anecdote</button>
 
         <div id="zone-anecdote" hidden>
           <p id="texte-anecdote"></p>

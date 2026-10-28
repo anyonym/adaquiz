@@ -12,23 +12,19 @@ const btnCommencer = document.getElementById("btn-commencer");
 const ecranAccueil = document.getElementById("ecran-accueil");
 const ecranQuestion = document.getElementById("ecran-question");
 const ecranResultats = document.getElementById("ecran-resultats");
-
-const titreQuiz = document.getElementById("titre-quiz");
-const descriptionQuiz = document.getElementById("description-quiz");
-const nbQuestions = document.getElementById("nb-questions");
-
+const titreQuiz = document.getElementById("titreQuiz");
+const descriptionQuiz = document.getElementById("descriptionQuiz");
+const nbQuestions = document.getElementById("nbQuestions");
 const texteQuestion = document.getElementById("texte-question");
 const listeReponses = document.getElementById("liste-reponses");
 const compteurQuestion = document.getElementById("compteur-question");
 const barreProgression = document.getElementById("barre-progression");
 const imageQuestion = document.getElementById("image-question");
 const btnSuivant = document.getElementById("btn-suivant");
-
 const feedbackReponse = document.getElementById("feedback-reponse");
 const btnAnecdote = document.getElementById("btn-anecdote");
 const zoneAnecdote = document.getElementById("zone-anecdote");
 const texteAnecdote = document.getElementById("texte-anecdote");
-
 const scoreFinal = document.getElementById("score-final");
 const messageFin = document.getElementById("message-fin");
 const nbQuestion = document.getElementById("nb-question");
@@ -46,37 +42,19 @@ let score = 0; // nombre de bonnes réponses
 // // Cette fonction est déjà écrite.
 // // Elle charge le fichier questions.json et remplit l'écran d'accueil.
 
-// fetch("questions.json")
-//   .then((response) => response.json())
-//   .then((data) => {
-//     questions = data;
-//     titreQuiz.textContent = "Motoquiz";
-//     descriptionQuiz.textContent =
-//       "Que tu sois pilote passionné.e de routes à virages, ou simplement amateur.ice de belles machines et de puissance, aligne toi sur la ligne de départ, accélère fort, prends la plus belle trajectoire et valide les 10 prochains checkpoints pour atteindre le meilleur score !";
-//     nbQuestions.textContent = questions.length + " questions";
-//   });
-
 fetch("questions.json")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Impossible de charger questions.json");
-    }
-
-    return response.json();
-  })
+  .then((response) => response.json())
   .then((data) => {
-    // Stocker les questions chargées
     questions = data;
-
-    // Mettre à jour le nombre de questions
-    nbQuestions.textContent = questions.length + " questions prêtes";
+    titreQuiz.textContent = "Motoquiz";
+    descriptionQuiz.textContent =
+      "Que tu sois pilote passionné.e de routes à virages, ou simplement amateur.ice de belles machines et de puissance, aligne toi sur la ligne de départ, accélère fort, prends la plus belle trajectoire et valide les 10 prochains checkpoints pour atteindre le meilleur score !";
+    nbQuestions.textContent =
+      questions.length + " questions à prendre sur l'angle !";
     //change le texte du bouton de demarrage une fois le chargement fini
     btnCommencer.textContent = "Démarrer le quiz 🏍️";
     // Autoriser le démarrage du quiz
     btnCommencer.disabled = false;
-  })
-  .catch((erreur) => {
-    console.error("Erreur de chargement du quiz :", erreur);
   });
 
 // ── Navigation entre les écrans ──────────────
@@ -99,6 +77,7 @@ const afficher = (ecran) => {
 // Elle est appelée au début de chaque nouvelle question.
 
 let reponseValidee = false;
+
 const afficherQuestion = () => {
   reponseValidee = false;
   // 1. Récupérer la question courante
@@ -113,6 +92,12 @@ const afficherQuestion = () => {
   // Afficher l'image associée à la question
   imageQuestion.src = q.image;
   imageQuestion.alt = `Illustration de la question ${indexCourant + 1}`;
+  // Préparer le texte de l'anecdote
+  texteAnecdote.textContent = q.anecdote;
+  // Cacher le bouton "anecdote"
+  btnAnecdote.hidden = true;
+  // Cacher la zone anecdote
+  zoneAnecdote.hidden = true;
   // 5. Cacher le bouton "Question suivante"
   btnSuivant.hidden = true;
   // Vider la liste des réponses
@@ -163,6 +148,14 @@ const verifierReponse = (indexChoisi) => {
   }
   // 6. Afficher le bouton "Question suivante"
   btnSuivant.hidden = false;
+  // 7. Afficher le bouton "Anecdote"
+  btnAnecdote.hidden = false;
+  btnAnecdote.disabled = false;
+  // 8. Afficher l'anecdote
+  const afficherAnecdote = (indexChoisi) => {
+    const a = anecdote[indexCourant];
+    return texteAnecdote;
+  };
 };
 
 // ── TODO : afficherResultats ─────────────────
@@ -180,7 +173,7 @@ const afficherResultats = () => {
       "Excellente performance ! Ta culture moto est impressionnante ! 🏍️";
   } else if (score >= 5) {
     messageFin.textContent =
-      "Tu as la moyenne, pas mal ! Encore quelques réglages au garage à faire... 🛵";
+      "Tu as la moyenne, pas mal ! Passe à l'atelier, quelques réglages à faire... 🛵";
   } else {
     messageFin.textContent =
       "Aïe, chute collective ! Retourne au stand pour une révision. 🛠️";
@@ -192,7 +185,7 @@ const afficherResultats = () => {
 
 // ── TODO : écouteurs d'événements ───────────
 // Branche les boutons sur les bonnes fonctions.
-//   - btn-commencer → afficher l'écran question + appeler afficherQuestion()
+// btn-commencer → afficher l'écran question + appeler afficherQuestion()
 btnCommencer.addEventListener("click", () => {
   //securité au cas Json n'est pas completement chargé
   if (questions.length === 0) return;
@@ -200,7 +193,7 @@ btnCommencer.addEventListener("click", () => {
   afficherQuestion();
 });
 
-//   - btn-suivant   → passer à la question suivante ou aux résultats
+// btn-suivant   → passer à la question suivante ou aux résultats
 btnSuivant.addEventListener("click", () => {
   indexCourant++;
   if (indexCourant < questions.length) {
@@ -210,7 +203,7 @@ btnSuivant.addEventListener("click", () => {
   }
 });
 
-//   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
+// btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
 btnRejouer.addEventListener("click", () => {
   indexCourant = 0; // remet le compteur des question à zéro.
   score = 0; // remet le score à zéro.
