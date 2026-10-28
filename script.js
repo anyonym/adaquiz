@@ -151,9 +151,9 @@ const verifierReponse = (indexChoisi) => {
 const afficherResultats = () => {
   // Ce qu'elle doit faire :
   //   1. Afficher le score dans #score-final (ex. "4 / 7")
-  scoreFinal.textContent = `${score} / ${questions.lenght}`;
+  scoreFinal.textContent = `${score} / ${questions.length}`;
   //   2. Afficher un message dans #message-fin selon le score
-  if (score === questions.lenght) {
+  if (score === questions.length) {
     messageFin.textContent = "Incroyable ! un sans-faute parfait, tu est pilote de légende ! 🏆";
   } else if (score >= 7) {
     messageFin.textContent = "Excellent performance ! Ta culture moto est impressionnante, 🏍️";
@@ -183,9 +183,9 @@ const afficherResultats = () => {
       if (indexCourant < questions.length) {
         afficherQuestion();
       } else {
-        afficherResultats
+        afficherResultats();
       }  
-  })
+  });
 
 //   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
   btnRejouer.addEventListener("click", () => {
