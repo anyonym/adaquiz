@@ -22,6 +22,7 @@ const listeReponses = document.getElementById("liste-reponses");
 const compteurQuestion = document.getElementById("compteur-question");
 const barreProgression = document.getElementById("barre-progression");
 const imageQuestion = document.getElementById("image-question");
+const btnSuivant = document.getElementById("btn-suivant");
 
 const feedbackReponse = document.getElementById("feedback-reponse");
 const btnAnecdote = document.getElementById("btn-anecdote");
@@ -75,53 +76,74 @@ const afficher = (ecran) => {
 // ── TODO : afficherQuestion ──────────────────
 // Cette fonction doit afficher la question en cours.
 // Elle est appelée au début de chaque nouvelle question.
-//
-// Ce qu'elle doit faire :
-//   1. Récupérer la question courante : questions[indexCourant]
-//   2. Mettre à jour la barre de progression
-//   3. Mettre à jour le compteur ("Question X / Y")
-//   4. Afficher le texte de la question dans #texte-question
-//   5. Cacher le bouton "Question suivante"
-//   6. Vider #liste-reponses, puis créer un bouton pour chaque réponse
-//      Chaque bouton doit appeler verifierReponse() au clic
 
-// écris ton code ici
+
+let reponseValidee = false; 
+
 const afficherQuestion = () => {
+  // 1. Récupérer la question courante
   const q = questions[indexCourant];
-
-  texteQuestion.textContent = q.texte; // modifier
-
-  listeReponses.innerHTML = ""; // vider
-
-  texteAnecdote.textContent = q.anecdote;
-
+  // 2. Mettre à jour la barre de progression
+  barreProgression.max = questions.length;
+  barreProgression.value = indexCourant + 1;
+  // 3. Mettre à jour le compteur
+  compteurQuestion.textContent =
+    `Question ${indexCourant + 1} / ${questions.length}`;
+  // 4. Afficher le texte de la question
+  texteQuestion.textContent = q.question;
+  // Afficher l'image associée à la question
+  imageQuestion.src = q.image;
+  imageQuestion.alt = `Illustration de la question ${indexCourant + 1}`;
+  // 5. Cacher le bouton "Question suivante"
+  btnSuivant.hidden = true;
+  // Vider la liste des réponses
+  listeReponses.innerHTML = "";
+  // 6. Créer un bouton pour chaque réponse
   q.reponses.forEach((reponse, index) => {
-    const btn = document.createElement("button"); // créer
+    const btn = document.createElement("button");
+
+    btn.type = "button";
     btn.textContent = reponse;
-    btn.classList.add("btn-reponse"); // modifier
+    btn.classList.add("btn-reponse");
+    // Appeler verifierReponse() au clic
     btn.addEventListener("click", () => {
-      // écouter
       verifierReponse(index);
     });
-    btnAnecdote.disabled = false;
-    listeReponses.appendChild(btn); // insérer
+
+    listeReponses.appendChild(btn);
   });
 };
 
 // ── TODO : verifierReponse ───────────────────
 // Cette fonction est appelée quand une apprenante clique sur une réponse.
 // Elle reçoit en paramètre l'index de la réponse choisie (0, 1, 2 ou 3).
-//
-// Ce qu'elle doit faire :
-//   1. Récupérer la question courante
-//   2. Désactiver tous les boutons de réponse
-//   3. Colorier en vert la bonne réponse (ajouter la classe "correcte")
-//   4. Si la réponse choisie est mauvaise, la colorier en rouge ("incorrecte")
-//   5. Si la réponse est bonne, incrémenter le score
-//   6. Afficher le bouton "Question suivante"
 
 const verifierReponse = (indexChoisi) => {
-  // Écris ton code ici
+  // 1. Récupérer la question courante
+  const q = questions[indexCourant];
+  // Empêcher de répondre plusieurs fois à la même question
+  if (reponseValidee) {
+    return;
+  }
+
+  reponseValidee = true;
+  // 2. Désactiver tous les boutons de réponse
+  const boutons = listeReponses.querySelectorAll(".btn-reponse");
+
+  boutons.forEach((bouton) => {
+    bouton.disabled = true;
+  });
+  // 3. Colorier en vert la bonne réponse
+  boutons[q.bonne_reponse].classList.add("correcte");
+  // 4. Si la réponse choisie est mauvaise, la colorier en rouge
+  if (indexChoisi !== q.bonne_reponse) {
+    boutons[indexChoisi].classList.add("incorrecte");
+  } else {
+    // 5. Si la réponse est bonne, incrémenter le score
+    score++;
+  }
+  // 6. Afficher le bouton "Question suivante"
+  btnSuivant.hidden = false;
 };
 
 // ── TODO : afficherResultats ─────────────────
