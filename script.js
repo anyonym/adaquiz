@@ -153,7 +153,9 @@ const afficherResultats = () => {
   });
 
 //   - btn-suivant   → passer à la question suivante ou aux résultats
-
+  btnSuivant.addEventListener("click", () => {
+    if (questions.lenght === 0)
+  })
 
 //   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
   btnRejouer.addEventListener("click", () => {
