@@ -30,7 +30,8 @@ const texteAnecdote = document.getElementById("texte-anecdote");
 
 const scoreFinal = document.getElementById("score-final");
 const messageFin = document.getElementById("message-fin");
-const btnRejouer = document.getElementById("btn-rejouer")
+const nbQuestions = document.getElementById("nb-question");
+const btnRejouer = document.getElementById("btn-rejouer");
 
 // ── État du quiz ─────────────────────────────
 // Ces variables stockent les données en cours de partie.
