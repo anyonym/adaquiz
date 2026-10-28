@@ -9,11 +9,13 @@
   </head>
 
   <body>
-    <main class="conteneur-quiz">
-      <header>
-        <h1>Motoquiz</h1>
-      </header>
+    <header>
+      <h1>
+        <img src="images/motoquiz-logo.png" alt="MOTOQUIZ" id="logo-titre" />
+      </h1>
+    </header>
 
+    <main class="conteneur-quiz">
       <!-- ═══════════════════════════════════════
        ÉCRAN 1 — ACCUEIL
        Affiché au départ. Caché quand on clique sur "Commencer".
@@ -23,74 +25,64 @@
           <img src="" alt="" />
         </div>
         <h2>Bienvenue sur la piste !</h2>
-        <p>Que tu sois pilote passionné.e de routes à virages, ou simplement amateur.ice de belles machines et de puissance, aligne toi sur la ligne de départ, accélère fort, prends la plus belle trajectoire et valide les 10 prochains checkpoints pour atteindre le meilleur score !</p>
+        <p id="description-quiz">
+          Que tu sois pilote passionné.e de routes à virages, ou simplement
+          amateur.ice de belles machines et de puissance, aligne toi sur la
+          ligne de départ, accélère fort, prends la plus belle trajectoire et
+          valide les 10 prochains checkpoints pour atteindre le meilleur score !
+        </p>
+        <p><span id="nb-questions">0</span></p>
 
-        
-          <button id="bouton-demarrer" class="bouton bouton-demarrer" disabled>
-            Warm-up en cour ...🚦
-          </button>
-        
+        <button id="btn-commencer" type="button">Warm-up en cours ...🚦</button>
       </section>
 
       <!-- ═══════════════════════════════════════
        ÉCRAN 2 — QUESTION
        Caché au départ. Affiché pendant le quiz.
   ════════════════════════════════════════ -->
-      <section id="ecran-question" class="ecran cache" hidden>
+      <section id="ecran-question" class="ecran cache">
+        <progress id="barre-progression" value="0" max="10"></progress>
+        <p id="compteur-question"></p>
 
-      <!---Compteur de questions--->
-        <div class="statut-quiz">
-          <span id="compteur-question">Question 1 /10</span>
+        <img id="image-question" src="" alt="Illustration de la question" />
+
+        <h2 id="texte-question"></h2>
+
+        <div id="liste-reponses"></div>
+
+        <p id="feedback-reponse" aria-live="polite"></p>
+
+        <button id="btn-anecdote" type="button" hidden>Anecdote</button>
+
+        <div id="zone-anecdote" hidden>
+          <p id="texte-anecdote"></p>
         </div>
 
-      <!------Bloc image----->  
-        <div class="image-question">
-          <img id="image-question" src="" alt="" />
-        </div>
-
-      <!---Zone pour le texte de la question (ID pour que JS affiche la question)-->
-        <h2 id="text">Chargememt de la question...🏍️</h2>
-
-      <!---Zone boutons de réponse ( Zone ou JS va Injecter les 4 réponses)-->
-        <div id="zone-boutons-reponses" class="grille-boutons">
-          <!--JS créra le bouton automatiquement ici -->
-        </div>
-
-      <!-----Zonede feedback ( mauvaise/ bonne reponse + annecdote )----->
-        <div id="boite-retour" class="conteneur-retour cache">
-          <p id="message-retour">Message de validation</p>
-          <p id="annecdote-retour" class="texte-annecdote">l'annecdote s'affichera ici...📜</p>  
-        </div>
-
-
-        <div class="bouton-question">
-          <button type="buttton" id="bouton-suivant" class="bouton-suivant cache" disabled>Question suivante</button>
-        </div>
-
+        <button id="btn-suivant" type="button" hidden>Question suivante</button>
       </section>
 
       <!-- ═══════════════════════════════════════
        ÉCRAN 3 — RÉSULTATS
        Caché au départ. Affiché à la fin du quiz.
   ════════════════════════════════════════ -->
-      <section id="ecran-resultats" class="ecran cache" hidden>
+      <section id="ecran-resultats" class="ecran cache">
         <div class="image-resultats">
-          <img src="" alt="" />
+          <img src="" alt="Fin de course" />
         </div>
 
         <h2>Résultats 🏁</h2>
 
-      <!----Ajout de <span> pour que JS écrive le score à cet endroit précis-->
-        <p>Score final : <span id="score-final">0</span> / 10</p>
+        <!----Ajout de <span> pour que JS écrive le score à cet endroit précis-->
+        <p>Score final : <span id="score-final">0 / 10</span></p>
+        <p id="message-fin">Message fin</p>
 
-        <div class="bouton-rejouer">
-          <button type="button" id="bouton-rejouer">Rejouer</button>
+        <div>
+          <button type="button" id="btn-rejouer">Rejouer</button>
         </div>
       </section>
-
-      <footer>
-        <p>&copy; 2026 Yoann &amp; Bounsy</p>
-      </footer>
     </main>
+    <footer>
+      <p>&copy; 2026 Yoann &amp; Bounsy</p>
+    </footer>
   </body>
 </html>

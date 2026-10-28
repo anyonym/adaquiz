@@ -3,31 +3,140 @@
 ════════════════════════════════════════════ */
 /* Base générale */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* Logo */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+header h1 {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+#logo-titre {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0px 8px 12px rgba(0, 0, 0, 0.6));
 }
 
+/* Fond immersif pour tout le Quiz */
 body {
-    margin: 0;
-    padding: 1rem;
-    font-family: Arial, sans-serif;
-    line-height: 1.5;
-    background-color: #ffc400;
-    color: #222;
-    text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)),
+    url("images/image_de_fond_alt.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Zone principale */
-main {
-    width: min(100%, 760px);
-    margin: 2rem auto;
+main,
+.container {
+  background: rgba(255, 255, 255, 0.08); /* effet verre fumé léger*/
+  backdrop-filter: blur(4px); /* floute le fond derriere le quiz*/
+  border: 1px solid (255, 255, 255, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: min(95%, 760px);
+  text-align: center;
+}
+/* Gestion des images et illustrations */
+.image-accueil img,
+.image-resultats img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  max-height: 250px;
+  object-fit: contain;
+  margin: 1rem auto;
+  border-radius: 8px;
+}
+/* Ecran d'accueil */
+#ecran-accueil p:last-of-type {
+  margin-bottom: 2rem;
+  font-size: 1.05remgit;
+}
+#descrition-quiz {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+#nb-questions {
+  font-size: bold;
+  color: #198754;
+}
+/* Bouton de demarrage */
+#btn-commencer,
+#btn-rejouer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  /*Magnifique degrade jaune/orange*/
+  background: linear-gradient(
+    135deg,
+    #ff9900 0%,
+    #e65c00 100%
+  );
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 16px 40px;
+  border: none;
+  border-radius: 50px;
+  /* effet "3D" du bouton */
+  box-shadow:
+    0 8px 20px rgba(230, 92, 0, 0.4),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+/* effet de survol du bouton */
+#btn-commencer:hover,
+#btn-rejouer:hover {
+  transform: translateY(-3px); /*le bouton se soulève légèrement*/
+  box-shadow:
+    0 12px 28px rgba(230, 92, 0, 0.6),
+    insert 0 -4px 0 rgba(0, 0, 0, 0.2);
+  filter: brightness(1.1); /* devient legerement plus lumineux*/
+}
+/* effet quand on clique sur le bouton */
+#btn-commencer:active,
+#btn-rejouer:active {
+  transform: translate(1px);
+  box-shadow:
+    0 4px 10px rgba(230, 92, 0, 0.4);
 }
 
 /* Écrans du quiz */
-.ecran {
-    padding: 2rem;
-    background-color: #ffc400;
-    border: 1px solid #ddd;
-    border-radius: 12px;
+.ecran-question {
+  padding: 2rem;
+  background-color: #ffc400;
+  border: 1px solid #ddd;
+  border-radius: 12px;
 }
 
 /* La classe .cache masque un écran */
@@ -37,46 +146,126 @@ main {
 
 /* Liste des réponses */
 #liste-reponses {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
 }
 
 /* Une proposition de réponse */
 .option-reponse {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .option-reponse input {
-    margin-top: 0.35rem;
-}
-
-/* Boutons */
-button {
-    padding: 0.75rem 1.25rem;
-    border: none;
-    border-radius: 6px;
-    background-color: #174ea6;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
+  margin-top: 0.35rem;
 }
 
 button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Barre de progression */
+#barre-progression {
+  display: block;
+  width: 100%;
+  height: 12px;
+  margin: 0.75rem 0 1rem;
+  accent-color: #198754;
+}
+
+/* Illustration de chaque question */
+#image-question {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  max-height: 350px;
+  object-fit: contain;
+  margin: 1rem auto;
+}
+
+/* Boutons de réponse */
+.btn-reponse {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  color: #222;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Bonne réponse : vert */
+.btn-reponse.correcte {
+  background-color: #d1e7dd;
+  border-color: #198754;
+  color: #0f5132;
+}
+
+/* Mauvaise réponse sélectionnée : rouge */
+.btn-reponse.incorrecte {
+  background-color: #f8d7da;
+  border-color: #dc3545;
+  color: #842029;
+}
+
+/* Feedback après validation */
+.feedback {
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.feedback.correcte {
+  color: #198754;
+}
+
+.feedback.incorrecte {
+  color: #dc3545;
+}
+
+/* Zone anecdote */
+#zone-anecdote {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 4px solid #174ea6;
+  background-color: #f0f4fa;
+}
+/* Ecran de resultats*/
+#score-final {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #174ea6;
+  display: inline-block;
+  margin-bottom: 0.5rem 0;
+}
+#message-fin {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+/* État désactivé */
+.btn-reponse:disabled {
+  cursor: not-allowed;
+  opacity: 1;
 }
 
 /* Accessibilité au clavier */
 button:focus-visible,
 input:focus-visible {
-    outline: 3px solid #f0a000;
-    outline-offset: 3px;
+  outline: 3px solid #f0a000;
+  outline-offset: 3px;
+}
+.footer {
+  text-align: center;
 }
