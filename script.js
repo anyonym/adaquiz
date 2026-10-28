@@ -46,16 +46,37 @@ let score = 0; // nombre de bonnes réponses
 // // Cette fonction est déjà écrite.
 // // Elle charge le fichier questions.json et remplit l'écran d'accueil.
 
+// fetch("questions.json")
+//   .then((response) => response.json())
+//   .then((data) => {
+//     questions = data;
+//     titreQuiz.textContent = "Motoquiz";
+//     descriptionQuiz.textContent =
+//       "Que tu sois pilote passionné.e de routes à virages, ou simplement amateur.ice de belles machines et de puissance, aligne toi sur la ligne de départ, accélère fort, prends la plus belle trajectoire et valide les 10 prochains checkpoints pour atteindre le meilleur score !";
+//     nbQuestions.textContent = questions.length + " questions";
+//   });
+
 fetch("questions.json")
-  .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Impossible de charger questions.json");
+    }
+
+    return response.json();
+  })
   .then((data) => {
+    // Stocker les questions chargées
     questions = data;
-    titreQuiz.textContent = "Motoquiz";
-    descriptionQuiz.textContent =
-      "Que tu sois pilote passionné.e de routes à virages, ou simplement amateur.ice de belles machines et de puissance, aligne toi sur la ligne de départ, accélère fort, prends la plus belle trajectoire et valide les 10 prochains checkpoints pour atteindre le meilleur score !";
-    nbQuestions.textContent = questions.length + " questions";
-    //change le texte du bouton de demarrage une fois le chargement finis
-    btnCommencer.textContent = "Démarer le quiz 🏍️";
+
+    // Mettre à jour le nombre de questions
+    nbQuestions.textContent = questions.length + " questions prêtes";
+    //change le texte du bouton de demarrage une fois le chargement fini
+    btnCommencer.textContent = "Démarrer le quiz 🏍️";
+    // Autoriser le démarrage du quiz
+    btnCommencer.disabled = false;
+  })
+  .catch((erreur) => {
+    console.error("Erreur de chargement du quiz :", erreur);
   });
 
 // ── Navigation entre les écrans ──────────────
@@ -77,18 +98,16 @@ const afficher = (ecran) => {
 // Cette fonction doit afficher la question en cours.
 // Elle est appelée au début de chaque nouvelle question.
 
-
-let reponseValidee = false; 
-
+let reponseValidee = false;
 const afficherQuestion = () => {
+  reponseValidee = false;
   // 1. Récupérer la question courante
   const q = questions[indexCourant];
   // 2. Mettre à jour la barre de progression
   barreProgression.max = questions.length;
   barreProgression.value = indexCourant + 1;
   // 3. Mettre à jour le compteur
-  compteurQuestion.textContent =
-    `Question ${indexCourant + 1} / ${questions.length}`;
+  compteurQuestion.textContent = `Question ${indexCourant + 1} / ${questions.length}`;
   // 4. Afficher le texte de la question
   texteQuestion.textContent = q.question;
   // Afficher l'image associée à la question
@@ -151,16 +170,20 @@ const verifierReponse = (indexChoisi) => {
 const afficherResultats = () => {
   // Ce qu'elle doit faire :
   //   1. Afficher le score dans #score-final (ex. "4 / 7")
-  scoreFinal.textContent = `${score} / ${questions.lenght}`;
+  scoreFinal.textContent = `${score} / ${questions.length}`;
   //   2. Afficher un message dans #message-fin selon le score
-  if (score === questions.lenght) {
-    messageFin.textContent = "Incroyable ! un sans-faute parfait, tu est pilote de légende ! 🏆";
+  if (score === questions.length) {
+    messageFin.textContent =
+      "Incroyable ! Un sans-faute parfait, tu es un pilote de légende ! 🏆";
   } else if (score >= 7) {
-    messageFin.textContent = "Excellent performance ! Ta culture moto est impressionnante, 🏍️";
+    messageFin.textContent =
+      "Excellente performance ! Ta culture moto est impressionnante ! 🏍️";
   } else if (score >= 5) {
-    messageFin.textContent = "Tu as la moyenne pas mal ! encore quelque réglage au garage à faire 🛵";
+    messageFin.textContent =
+      "Tu as la moyenne, pas mal ! Encore quelques réglages au garage à faire... 🛵";
   } else {
-    messageFin.textContent = "Aie, chute collective ! Retourne au stand pour une révision. 🛠️";
+    messageFin.textContent =
+      "Aïe, chute collective ! Retourne au stand pour une révision. 🛠️";
   }
   //   3. Appeler afficher(ecranResultats) pour passer à l'écran résultats
   // Écris ton code ici
@@ -170,33 +193,32 @@ const afficherResultats = () => {
 // ── TODO : écouteurs d'événements ───────────
 // Branche les boutons sur les bonnes fonctions.
 //   - btn-commencer → afficher l'écran question + appeler afficherQuestion()
-  btnCommencer.addEventListener("click", () => {
-    //securité au cas Json n'est pas completement chargé
-    if (questions.length === 0) return;
-    afficher(ecranQuestion);
-    afficherQuestion();
-  });
+btnCommencer.addEventListener("click", () => {
+  //securité au cas Json n'est pas completement chargé
+  if (questions.length === 0) return;
+  afficher(ecranQuestion);
+  afficherQuestion();
+});
 
 //   - btn-suivant   → passer à la question suivante ou aux résultats
-  btnSuivant.addEventListener("click", () => {
-      indexCourant ++;
-      if (indexCourant < questions.length) {
-        afficherQuestion();
-      } else {
-        afficherResultats
-      }  
-  })
+btnSuivant.addEventListener("click", () => {
+  indexCourant++;
+  if (indexCourant < questions.length) {
+    afficherQuestion();
+  } else {
+    afficherResultats();
+  }
+});
 
 //   - btn-rejouer   → remettre indexCourant et score à 0, revenir à l'accueil
-  btnRejouer.addEventListener("click", () => {
-    indexCourant = 0;  // remet le compteur des question à zéro.
-    score = 0;        // remet le score à zéro.
-    afficher(ecranAccueil);   // Retourne à l'écran de départ. 
+btnRejouer.addEventListener("click", () => {
+  indexCourant = 0; // remet le compteur des question à zéro.
+  score = 0; // remet le score à zéro.
+  afficher(ecranAccueil); // Retourne à l'écran de départ.
+});
+
+if (btnAnecdote) {
+  btnAnecdote.addEventListener("click", () => {
+    zoneAnecdote.hidden = false;
   });
-
-  if (btnAnecdote) {
-    btnAnecdote.addEventListener("click", () => {
-      zoneAnecdote.hidden = false;
-    });
-  }
-
+}
