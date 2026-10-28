@@ -77,12 +77,12 @@ main,
   margin-bottom: 2rem;
   font-size: 1.05remgit;
 }
-#descrition-quiz {
+#descriptionQuiz {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 2rem;
 }
-#nb-questions {
+#nbQuestions {
   font-size: bold;
   color: #198754;
 }
@@ -237,8 +237,13 @@ button:disabled {
 #zone-anecdote {
   margin: 1rem 0;
   padding: 1rem;
-  border-left: 4px solid #174ea6;
-  background-color: #f0f4fa;
+  border-left: 8px solid #198754;
+  background: linear-gradient(
+    135deg,
+    #ff9900 0%,
+    #e65c00 100%
+  );
+  color: #ffffff;
 }
 /* Ecran de resultats*/
 #score-final {
