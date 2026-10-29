@@ -33,7 +33,9 @@
         </p>
         <p><span id="nbQuestions">10</span></p>
 
-        <button id="btn-commencer" type="button" disabled>Warm-up en cours ...🚦</button>
+        <button id="btn-commencer" type="button" disabled>
+          Warm-up en cours ...🚦
+        </button>
       </section>
 
       <!-- ═══════════════════════════════════════
@@ -52,13 +54,18 @@
 
         <p id="feedback-reponse" aria-live="polite"></p>
 
-        <button id="btn-anecdote" type="button" hidden disabled>Anecdote</button>
-
         <div id="zone-anecdote" hidden>
           <p id="texte-anecdote"></p>
         </div>
 
-        <button id="btn-suivant" type="button" hidden>Question suivante</button>
+        <div class="actions-quiz">
+          <button id="btn-anecdote" type="button" hidden disabled>
+            Anecdote
+          </button>
+          <button id="btn-suivant" type="button" hidden>
+            Question suivante
+          </button>
+        </div>
       </section>
 
       <!-- ═══════════════════════════════════════
@@ -67,16 +74,18 @@
   ════════════════════════════════════════ -->
       <section id="ecran-resultats" class="ecran cache">
         <div class="image-resultats">
-          <img src="" alt="Fin de course" />
+          <img
+            src="images/cadre-resultats.png"
+            alt="cadre resultat"
+            class="podium"
+          />
         </div>
-
         <h2>Résultats 🏁</h2>
 
         <!----Ajout de <span> pour que JS écrive le score à cet endroit précis-->
-        <p>Score final : <span id="score-final">0 / 10</span></p>
-        <p id="message-fin">Message fin</p>
-
-        <div>
+        <div class="resultats">
+          <p>Score final : <span id="score-final">0 / 10</span></p>
+          <p id="message-fin">Message fin</p>
           <button type="button" id="btn-rejouer">Rejouer</button>
         </div>
       </section>
