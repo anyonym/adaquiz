@@ -139,11 +139,11 @@ const verifierReponse = (indexChoisi) => {
   });
   // 3. Colorier en vert la bonne réponse
   boutons[q.bonne_reponse].classList.add("correcte");
-  boutons[q.bonne_reponse].textContent += " - VRAI";
+  boutons[q.bonne_reponse].textContent += " ✅Vrai ";
   // 4. Si la réponse choisie est mauvaise, la colorier en rouge
   if (indexChoisi !== q.bonne_reponse) {
     boutons[indexChoisi].classList.add("incorrecte");
-    boutons[indexChoisi].textContent += " - FAUX";
+    boutons[indexChoisi].textContent += " 🛑Faux";
   } else {
     // 5. Si la réponse est bonne, incrémenter le score
     score++;
