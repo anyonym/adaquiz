@@ -105,7 +105,7 @@ const afficherQuestion = () => {
   // 6. Créer un bouton pour chaque réponse
   q.reponses.forEach((reponse, index) => {
     const btn = document.createElement("button");
-
+    
     btn.type = "button";
     btn.textContent = reponse;
     btn.classList.add("btn-reponse");
@@ -139,9 +139,11 @@ const verifierReponse = (indexChoisi) => {
   });
   // 3. Colorier en vert la bonne réponse
   boutons[q.bonne_reponse].classList.add("correcte");
+  boutons[q.bonne_reponse].textContent += " - VRAI";
   // 4. Si la réponse choisie est mauvaise, la colorier en rouge
   if (indexChoisi !== q.bonne_reponse) {
     boutons[indexChoisi].classList.add("incorrecte");
+    boutons[indexChoisi].textContent += " - FAUX";
   } else {
     // 5. Si la réponse est bonne, incrémenter le score
     score++;
