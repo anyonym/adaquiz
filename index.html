@@ -74,22 +74,28 @@
   ════════════════════════════════════════ -->
       <section id="ecran-resultats" class="ecran cache">
         <div class="image-resultats">
-          <img
-            src="images/cadre-resultats.png"
-            alt="cadre resultat"
-            class="podium"/>
-
-          <!----Ajout de <span> pour que JS écrive le score à cet endroit précis-->
-          <div class="resultats">
-            <h2>Résultats</h2>
-            <p>Score final : <span id="score-final">0 / 10</span></p>
-            <p id="message-fin">Message fin</p>
+          <!--Wrapper pourl'image du podium et le score incruste -->
+          <div class="podium-wrapper">
+            <img
+              src="images/cadre-resultats.png"
+              alt="cadre resultat"
+              class="podium"
+            />
+            <!----Ajout de <span> pour que JS écrive le score à cet endroit précis-->
+            <div class="resultats">
+              <h2>Résultats</h2>
+              <p>Score final : <span id="score-final">0 / 10</span></p>
+            </div>
           </div>
+
+          <!----Message aéré en dessous du podium---->
+          <p id="message-fin">Message fin</p>
         </div>
+
         <button type="button" id="btn-rejouer">Rejouer</button>
       </section>
     </main>
-    <footer>
+    <footer class="footer">
       <p>&copy; 2026 Yoann &amp; Bounsy</p>
     </footer>
   </body>
