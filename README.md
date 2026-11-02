@@ -23,16 +23,16 @@ Dépôt distant GitHub : https://github.com/anyonym/adaquiz.git
 
 Branche `main` : <b>version mise à jour et fonctionnelle uniquement</b>
 
-Branches `data`, `personnalisation`, `modif-todo` : branches de développement / tests fonctionnalités
+Branches `data`, `personnalisation`, `fix-responsive` : branches de développement / tests fonctionnalités
 
 ### Contenu du repository :
 ```
 .gitignore
-`README.md`
-`index.html`
-`style.css`
-`script.js`
-`questions.json`
+README.md
+index.html
+style.css
+script.js
+questions.json
 /images --- contient les illustrations
 /maquettes --- contient les wireframes
 ```
