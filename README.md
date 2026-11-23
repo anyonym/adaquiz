@@ -2,6 +2,8 @@
 
 ## Présentation du quiz
 
+URL : https://moto-quiz.netlify.app/
+
 Voici un quiz composé de <b>10 questions à choix multiples sur le thème de la moto</b>.
 
 Le quiz s'ouvre sur un écran d'accueil et se lance directement en utilisant le bouton `"DÉMARRER LE QUIZ 🏍️"` qui s'y trouve.
@@ -58,30 +60,3 @@ questions.json
 ### Reste à améliorer :
 
 Le nombre de questions qui s'incrémente directement grâce au `script.js` si le fichier `questions.json` est modifié.
-
-
-## Ce qui est déjà fait
-
-- `index.html` — la structure de base avec les 3 sections à compléter
-- `style.css` — uniquement la classe .cache (permettant de cacher des écrans dynamiquement grâce au JS)
-- `script.js` — le chargement du JSON et la navigation entre écrans
-
-## Ce que vous devez faire
-
-1. **Compléter `index.html` et `style.css`** pour créer le squelette du site, sans JavaScript
-2. **Compléter `questions.json`** avec au moins 5 questions (voir le brief pour le format)
-3. **Compléter les fonctions** marquées `TODO` dans `script.js` :
-   - `afficherQuestion()`
-   - `verifierReponse(indexChoisi)`
-   - `afficherResultats()`
-   - Les écouteurs d'événements en bas du fichier
-
-## Lancer le projet en local
-
-```bash
-npx live-server
-```
-
-Ouvrir ensuite `http://localhost:8080`.
-
-> ⚠️ Ne pas ouvrir `index.html` directement dans le navigateur — `fetch` ne fonctionne pas sans serveur local.
