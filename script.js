@@ -1,5 +1,5 @@
 // ════════════════════════════════════════════
-//   ADAQUIZ — script.js
+//   MOTOQUIZ — script.js
 //   Certaines fonctions sont déjà écrites.
 //   Les fonctions marquées TODO sont à compléter.
 // ════════════════════════════════════════════
@@ -52,7 +52,7 @@ fetch("questions.json")
     nbQuestions.textContent =
       questions.length + " questions à prendre sur l'angle !";
     //change le texte du bouton de demarrage une fois le chargement fini
-    btnCommencer.textContent = "Démarrer le quiz 🏍️";
+    btnCommencer.textContent = "Démarrer le quiz 🏁";
     // Autoriser le démarrage du quiz
     btnCommencer.disabled = false;
   });
