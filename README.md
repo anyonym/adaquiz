@@ -1,27 +1,19 @@
-# Motoquiz — Bounsy & Yoann
+# MotoQuiz
 
 ## Présentation du quiz
 
 URL : https://moto-quiz.netlify.app/
 
 Voici un quiz composé de <b>10 questions à choix multiples sur le thème de la moto</b>.
-
-Le quiz s'ouvre sur un écran d'accueil et se lance directement en utilisant le bouton `"DÉMARRER LE QUIZ 🏍️"` qui s'y trouve.
-
+Le quiz s'ouvre sur un écran d'accueil et se lance directement en utilisant le bouton `"DÉMARRER LE QUIZ 🏁"` qui s'y trouve.
 Les questions se succèdent les unes après les autres, après validation de la réponse (1 seule bonne réponse par question).
-
 Des anecdotes en lien avec chaque question sont proposées juste après avoir répondu afin de préciser la réponse et d'enrichir ta culture moto.
-
 Les boutons `"ANECDOTE"` et `"QUESTION SUIVANTE"` deviennent accessibles uniquement après avoir sélectionné la réponse à la question, et ne sont cliquables qu'une seule fois.
-
 Ton score est affiché à l'issue sur l'écran de résultats, avec un commentaire personnalisé en fonction du nombre de points que tu as validé.
-
 Sur ce même écran, le bouton `"REJOUER"` permet de recommencer le quiz à volonté !
 
 
 ## Rejoindre le projet 
-
-Dépôt distant GitHub : https://github.com/anyonym/adaquiz.git
 
 Branche `main` : <b>version mise à jour et fonctionnelle uniquement</b>
 
