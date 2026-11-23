@@ -46,7 +46,7 @@ fetch("questions.json")
   .then((response) => response.json())
   .then((data) => {
     questions = data;
-    titreQuiz.textContent = "Motoquiz";
+    titreQuiz.textContent = "🏍️ MotoQuiz 🏆";
     descriptionQuiz.textContent =
       "Que tu sois pilote passionné.e de routes à virages, ou simplement amateur.ice de belles machines et de puissance, aligne toi sur la ligne de départ, accélère fort, prends la plus belle trajectoire et valide les 10 prochains checkpoints pour atteindre le meilleur score !";
     nbQuestions.textContent =
