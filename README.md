@@ -2,7 +2,7 @@
 
 ## Présentation du quiz
 
-URL : https://moto-quiz.netlify.app/
+🔗 [Voir le site en ligne](https://moto-quiz.netlify.app)
 
 Voici un quiz composé de <b>10 questions à choix multiples sur le thème de la moto</b>.
 Le quiz s'ouvre sur un écran d'accueil et se lance directement en utilisant le bouton `"DÉMARRER LE QUIZ 🏁"` qui s'y trouve.
